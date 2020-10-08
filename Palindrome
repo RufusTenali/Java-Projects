@@ -1,0 +1,31 @@
+import java.util.*;
+
+public class Palindrome {
+	public static void main (String args[])
+			{
+				Scanner scan = new Scanner(System.in);
+				System.out.println("Please input a word");
+				boolean answer = true;
+				String input = scan.nextLine();
+				
+				while(input.length() > 1)
+				{
+					
+					if(input.charAt(0) == input.charAt(input.length()-1))
+					{
+						input = input.substring(1,input.length()-1);
+						//System.out.println("This is still a palindrome");
+					}
+					else
+					{
+						System.out.println("This is not a Palindrome");
+						answer = false;
+						break;
+					}
+				}
+				if(answer = true)
+				{
+					System.out.println("This word is a palindrome");
+				}
+			}
+	}
