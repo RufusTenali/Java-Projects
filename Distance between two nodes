@@ -1,0 +1,40 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class DistanceBNodes {
+    public static void main(String args[] ) throws Exception 
+    {
+        Scanner sc = new Scanner(System.in);
+
+        int i = 0;
+       double LatitudeOne = sc.nextDouble();
+       double LongitudeOne = sc.nextDouble();
+       double LatitudeTwo = sc.nextDouble();
+       double LongitudeTwo = sc.nextDouble();
+       System.out.println((int)(haversine(LatitudeOne,LongitudeOne,LatitudeTwo,LongitudeTwo)));
+
+       while(i<50)
+       {
+           i++;
+       }
+    }
+    
+    public static double haversine(double LatitudeOne,double LongitudeOne,double LatitudeTwo,double LongitudeTwo)
+    {
+        double DifferenceLatituide = Math.toRadians(LatitudeTwo - LatitudeOne);
+        double DifferenceLongitude = Math.toRadians(LongitudeTwo - LongitudeOne);
+
+        LatitudeOne = Math.toRadians(LatitudeOne);
+        LatitudeTwo = Math.toRadians(LatitudeTwo);
+
+        double a = Math.sin(DifferenceLatituide / 2) * Math.sin(DifferenceLatituide / 2) + Math.cos(LatitudeOne) * Math.cos(LatitudeTwo) * Math.sin(DifferenceLongitude / 2) * Math.sin(DifferenceLongitude / 2);
+      
+        return Math.round(2 * 6371 * Math.atan2(Math.sqrt(a),Math.sqrt(1 - a)) / 100) * 100;
+        
+
+
+    }
+}
